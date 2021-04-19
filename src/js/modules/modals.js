@@ -13,13 +13,9 @@ const modals = () => {
                 if (e.target) {
                     e.preventDefault();
                 }
-
                 btnPressed = true;
-
                 if (destroy) {
-                    setTimeout(() => {
-                        e.target.remove();
-                    }, 2000); 
+                    e.target.remove();
                 }
                 windows.forEach(item => {
                     item.style.display = 'none';
