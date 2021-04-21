@@ -1,4 +1,4 @@
-
+import {postData} from '../services/requests'
 
 const forms = () => {
     const form = document.querySelectorAll('form'); // получаем формы, инпуты и инпуты для ввода телефонов
@@ -21,14 +21,6 @@ const forms = () => {
         question: 'assets/question.php'
     }
 
-
-    const postData = async (url, data) => { // метод для отправки данных с форм (1арг - адрес, 2арг - данные, кторые мы собрали с помощью метода new FormData)
-        let res = await fetch(url, { // отправляем. присваиваем ответ в переменную (!!! await для ассинхронного выполнения кода. Поскольку жс не будет ждать ответа с сервера и следовательно не присовит нашей переменной значение. (будет андефайнд))
-            method: "POST", // гет или пост. у нас форма - сл-но пост
-            body: data 
-        });
-        return await res.text(); // преобразовываем в строковое значение
-    };
 
     const clearInputs = () => { // функция для очистки инпутов
         inputs.forEach(input => {
