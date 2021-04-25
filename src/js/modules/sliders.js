@@ -16,6 +16,7 @@ const sliders = (slides, dir, prev, next) => {
         items.forEach(item => {
             item.classList.add('animated');
             item.style.display = "none";
+            item.parentNode.style.height = 'auto';
         })
 
         items[slideIndex - 1].style.display = 'block';
@@ -56,7 +57,8 @@ const sliders = (slides, dir, prev, next) => {
                 paused = setInterval(function() {
                     plusSlides(1);
                     items[slideIndex - 1].classList.remove('bounceInRight');
-                    items[slideIndex - 1].classList.add('bounceInLeft');        
+                    items[slideIndex - 1].classList.add('bounceInLeft');  
+
                 }, 3000)
             }
         }

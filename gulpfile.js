@@ -4,8 +4,8 @@ const gulp = require("gulp");
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
-// const dist = "./dist/"; // путь куда мы все компилируем
-const dist = "/MAMP/htdocs/ArtPicture"; // путь куда мы все компилируем
+const dist = "./dist/"; // путь куда мы все компилируем
+// const dist = "/MAMP/htdocs/ArtPicture"; // путь куда мы все компилируем
 
 gulp.task("copy-html", () => { // отслеживает изменения в html  и запускает browsersync
     return gulp.src("./src/index.html")
