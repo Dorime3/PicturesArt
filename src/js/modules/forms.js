@@ -41,7 +41,7 @@ const forms = () => {
             item.previousElementSibling.textContent = name;
         })
     })
-
+    
     form.forEach(item => {
         item.addEventListener('submit', (e) => {
             e.preventDefault(); // отменяем перезагрузку странцы

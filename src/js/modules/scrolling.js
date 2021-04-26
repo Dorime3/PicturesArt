@@ -1,7 +1,7 @@
 const scrolling = (upSelector) => {
     const upElem = document.querySelector(upSelector);
     
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () => {  // говорим появляться нашей фикс-стрелочке при достижении скролла 1600 пх
         if (document.documentElement.scrollTop > 1600) {
             upElem.classList.add('animated', 'fadeIn');
             upElem.classList.remove('fadeOut');
@@ -10,34 +10,36 @@ const scrolling = (upSelector) => {
             upElem.classList.remove('fadeIn');
         }
     })
+
+
     //scrolling with requestAnimationFrame
 
-    let links = document.querySelectorAll('[href^="#"]'),
-        speed = 0.15;
+    let links = document.querySelectorAll('[href^="#"]'),  // получаем элементы с атрибутами ашреф "каретка" ))
+        speed = 0.15; 
     
         links.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                let widthTop = document.documentElement.scrollTop,
-                    hash = this.hash,
-                    toBlock = document.querySelector(hash).getBoundingClientRect().top,
+                let widthTop = document.documentElement.scrollTop, // значение высоты прокрученной части страницы
+                    hash = this.hash, // хэш - получаем из адресной строки
+                    toBlock = document.querySelector(hash).getBoundingClientRect().top, // гетбоундингклаэнрект - значение, полученное полсе компиляции кода в клиенте (высота до нашего элемента) от нашего расположения
                     start = null;
 
-                requestAnimationFrame(step);
+                requestAnimationFrame(step); // как сетинтервал примерно
                 
-                function step(time) {
-                    if (start === null) {
+                function step(time) { 
+                    if (start === null) { // задается отправная точка, сработает тольок в самый первый раз.
                         start = time;
                     }
-                    let progress = time - start,
-                        r = (toBlock < 0 ? Math.max(widthTop - progress/speed, widthTop + toBlock) : Math.min(widthTop + progress/speed, widthTop + toBlock));
-                        document.documentElement.scrollTo(0, r);
+                    let progress = time - start, 
+                        r = (toBlock < 0 ? Math.max(widthTop - progress/speed, widthTop + toBlock) : Math.min(widthTop + progress/speed, widthTop + toBlock)); // дич (ง︡'-'︠)ง
+                        document.documentElement.scrollTo(0, r); // перемещаемся по оси Y к нашей технической переменной
 
                     if (r != widthTop + toBlock) {
-                        requestAnimationFrame(step);
+                        requestAnimationFrame(step); // функция сама себя будет рекурсивно запускать пока значение r не будет равно прокрученной части страницы + высоты нашего элемента
                     } else {
-                        location.hash = hash;
+                        window.location.hash = hash;  // устанавливает конечный хэш
                     }
                 }
             })

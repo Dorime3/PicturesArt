@@ -82,11 +82,13 @@
 					<p class=logo-p>Преврати фотографию в настоящую картину!</p>
 				</div>
 				<div class="col-md-3 col-md-offset-3 col-sm-offset-0 col-sm-4 hidden-xs">
-					<div class=file_upload>
-						<button type=button>Загрузить фотографию</button>
-						<div>Файл не выбран</div>
-						<input type=file name=upload>
-					</div>
+						<form action="#" class="img_upload" action=# method=POST>
+							<div class=file_upload>
+								<button type=button>Загрузить фотографию</button>
+								<div>Файл не выбран</div>
+								<input type=file name=upload>
+							</div>
+						</form>
 					<p class=email>E-mail: <a href=mailto:info@kartiny.art>info@kartiny.art</a></p>
 				</div>
 				<div class="col-md-3 col-sm-4 col-xs-7">
@@ -208,7 +210,7 @@
 						<div class=file_upload>
 							<button type=button>Загрузить фотографию</button>
 							<div>Файл не выбран</div>
-							<input type=file name=upload>
+							<input type=file name=upload multiple accept="image/*">
 						</div>
 						<select id=size>
 							<option value >Выберите размер картины</option>
