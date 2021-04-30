@@ -16,7 +16,7 @@ const sliders = (slides, dir, prev, next) => {
         items.forEach(item => {
             item.classList.add('animated');
             item.style.display = "none";
-            item.parentNode.style.height = 'auto';
+            // item.parentNode.style.height = 'auto';
         })
 
         items[slideIndex - 1].style.display = 'block';

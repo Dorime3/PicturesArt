@@ -5347,8 +5347,7 @@ var sliders = function sliders(slides, dir, prev, next) {
 
     items.forEach(function (item) {
       item.classList.add('animated');
-      item.style.display = "none";
-      item.parentNode.style.height = 'auto';
+      item.style.display = "none"; // item.parentNode.style.height = 'auto';
     });
     items[slideIndex - 1].style.display = 'block';
   }
